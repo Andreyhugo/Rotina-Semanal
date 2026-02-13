@@ -1,0 +1,163 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS DE COR */
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --primary: #22c55e;
+    --primary-soft: rgba(34, 197, 94, 0.2);
+    --border: #1f2933;
+}
+
+/* BODY */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: var(--text);
+    padding: 40px 20px;
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* GRID */
+.week {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CARD DIA */
+.day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* NOME DO DIA */
+.day h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+/* TAREFAS */
+.task {
+    margin: 10px 0;
+}
+
+.task label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.task input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 2px solid var(--muted);
+    cursor: pointer;
+    position: relative;
+}
+
+.task input:checked {
+    border-color: var(--primary);
+    background: var(--primary);
+}
+
+.task input:checked::after {
+    content: "✓";
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+
+.task input:checked + span {
+    color: var(--text);
+}
+
+/* BARRA DE PROGRESSO */
+.progress-container {
+    background: #020617;
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    transition: width 0.4s ease;
+}
+
+/* TEXTO DE PROGRESSO */
+.progress-text {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* RESPONSIVO */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+#resetBtn {
+    display: block;
+    margin: 0 auto 40px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    color: #020617;
+    background: linear-gradient(90deg, #ef4444, #f87171);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#resetBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(239, 68, 68, 0.6);
+}
+
+#resetBtn:active {
+    transform: scale(0.96);
+}
